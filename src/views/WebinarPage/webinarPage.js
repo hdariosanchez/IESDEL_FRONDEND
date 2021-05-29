@@ -10,6 +10,8 @@ import People from "@material-ui/icons/People";
 import Header from "components/Header/Header.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Footer from "components/Footer/Footer.js";
+
+import Grid from "@material-ui/core/Grid";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
@@ -17,21 +19,27 @@ import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
-import {Helmet} from "react-helmet";
+import CardVideoSection from "./Sections/CardVideoSection.js";
 
+import {Helmet} from "react-helmet";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
 
 import image from "assets/img/bg7.jpg";
+
 
 const useStyles = makeStyles(styles);
 
 export default function WebinarPage(props) {
   const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+  
   setTimeout(function() {
     setCardAnimation("");
   }, 700);
+
   const classes = useStyles();
   const { ...rest } = props;
+
+
   return (
     <div>
       <Header
@@ -49,61 +57,11 @@ export default function WebinarPage(props) {
           backgroundPosition: "top center"
         }}
       >
+        
         <div className={classes.container}>
-          <GridContainer justify="right">
-            <GridItem xs={10} sm={10} md={10}>
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/Wp1h01gCQLg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </GridItem>
-            <GridItem xs={2} sm={2} md={2}>
-              <Card className={classes[cardAnimaton]}>
-                <form className={classes.form}>
-                  <CardHeader color="primary" className={classes.cardHeader}>
-                    <h4>Chat Activo - Webinar</h4>
-                    <div className={classes.socialLine}>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-twitter"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-facebook"} />
-                      </Button>
-                      <Button
-                        justIcon
-                        href="#pablo"
-                        target="_blank"
-                        color="transparent"
-                        onClick={e => e.preventDefault()}
-                      >
-                        <i className={"fab fa-google-plus-g"} />
-                      </Button>
-                    </div>
-                  </CardHeader>
-                  <p className={classes.divider}>Or Be Classical</p>
-                  <CardBody>
-                      
-                    
-                  </CardBody>
-                  <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg">
-                      Registrate aqui
-                    </Button>
-                  </CardFooter>
-                </form>
-              </Card>
-            </GridItem>
-          </GridContainer>
+          <CardVideoSection />
         </div>
+        
         <Footer whiteFont />
       </div>
     </div>
